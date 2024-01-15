@@ -1,0 +1,125 @@
+﻿<Page x:Class="TicketToRideGUI.Views.CreationGamesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:p="clr-namespace:TicketToRideGUI.Properties"
+      xmlns:local="clr-namespace:TicketToRideGUI.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1960"
+      Title="CreationGamesPage">
+
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Border Width="1960"
+                    Height="1080"
+                    CornerRadius = "10"
+                    BorderBrush = "Beige"
+                    BorderThickness = "5">
+                <Border.Background>
+                    <ImageBrush ImageSource = "/Images/CrationGames.jpg"/>
+                </Border.Background>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image x:Name="ImgBack"
+                           Source="\Images\volver.png" 
+                           Height = "100"
+                           Width = "100"
+                           HorizontalAlignment = "Left"
+                           VerticalAlignment = "Top" 
+                           Margin = "40,45,0,0"
+                           MouseLeftButtonDown = "BackClick"
+                    />
+
+                    <StackPanel Grid.Column="0" 
+                                VerticalAlignment="Top"
+                                Margin="30,350,10,0" 
+                                Height="556">
+                        <TextBlock x:Name="txtbCreateRoom"
+                                   Text="{x:Static p:Resources.btnCreateLobbie}" 
+                                   FontSize="60" 
+                                   FontWeight="Bold"
+                                   Width="324" 
+                                   Height="89"
+                                   Foreground="#151f3b"
+                                   Background="#6ec0f9"
+                                   Opacity=".97"
+                                   TextAlignment="Center"
+                        />
+                        <TextBlock x:Name="txtbCapacity"
+                                    Text="{x:Static p:Resources.CapacityRoom}"
+                                   FontSize="30"
+                                   Background="#6ec0f9"
+                                   Foreground="#151f3b"
+                                   FontWeight="Bold"
+                                   Margin="0,15,0,15" 
+                                   Width="495" 
+                                   Height="57"
+                                   Opacity=".9"
+                        />
+                        <ComboBox x:Name="cbxQuota"
+                                  Width="444" 
+                                  Height="67" 
+                                  Text="Cupo"
+                                  FontSize="50">
+                            <ComboBoxItem Content="2"/>
+                            <ComboBoxItem Content="3"/>
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                        </ComboBox>
+                        <Button x:Name="btnCreateLobbie"
+                                Content="{x:Static p:Resources.btnCreateLobbie}" 
+                                FontSize="40"
+                                FontFamily="ArialBlack"
+                                FontWeight="Black"
+                                Opacity=".9"
+                                Background="#6ec0f9"
+                                Width="225" 
+                                Height="61" Click="btnCreateLobbie_Click"
+                        />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left" 
+                                Height="580" 
+                                Width="955" Margin="20,338,0,0">
+                        <TextBlock x:Name="lblSearchRoom"
+                                   Text="{x:Static p:Resources.lblSearchRoom}" 
+                                   FontSize="60" 
+                                   FontWeight="Bold"
+                                   Width="331" 
+                                   Height="88"
+                                   Foreground="#151f3b"
+                                   Background="#6ec0f9"
+                                   Opacity=".97"
+                                   TextAlignment="Center"
+                        />
+                        <TextBox x:Name="txbLobbieID"
+                                 Width="545" 
+                                 Height="68" 
+                                 Margin="0,15,0,15"
+                                 FontSize="45"
+                        />
+                        <Button x:Name="btnJoinLobbie"
+                                Content="Unirse" 
+                                FontSize="40"
+                                FontFamily="ArialBlack"
+                                FontWeight="Black"
+                                Opacity=".9"
+                                Background="#6ec0f9"
+                                Width="227" 
+                                Height="70" Click="btnJoinLobbie_Click"
+                        />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Page>

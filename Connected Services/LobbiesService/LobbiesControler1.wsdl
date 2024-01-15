@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="LobbiesControler" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ILobbies_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameRoom_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.74:9018/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.74:9018/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.74:9018/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILobbies_CreateLobbie_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_JoinLobbie_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ExistLobbie_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_IsEndedLobbie_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEndedLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_LobbieAreAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:LobbieAreAvailable" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ConfirmationCreationLobbie_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmationCreationLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ConfirmationCreationLobbie_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmationCreationLobbieResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveLobbieID_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveLobbieID" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveLobbieID_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveLobbieIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_JoinedSucessFull_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:JoinedSucessFull" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_JoinedSucessFull_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:JoinedSucessFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveResponseExistLobbie_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseExistLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveResponseExistLobbie_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseExistLobbieResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveResponseIsEndedLobbie_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseIsEndedLobbie" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveResponseIsEndedLobbie_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseIsEndedLobbieResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveResponseLobbieAreAvailable_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseLobbieAreAvailable" />
+  </wsdl:message>
+  <wsdl:message name="ILobbies_ReceiveResponseLobbieAreAvailable_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseLobbieAreAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_IsLobbieHost_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsLobbieHost" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ExitFromLobbie_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExitFromLobbie" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_GetFriendList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendList" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_Invitatefriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:Invitatefriend" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_GoToTheGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:GoToTheGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveResponseIsLobbieHost_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseIsLobbieHost" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveResponseIsLobbieHost_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseIsLobbieHostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_UpdatePlayerListRealTime_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlayerListRealTime" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveResponseExitFromLobbie_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseExitFromLobbie" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveResponseExitFromLobbie_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseExitFromLobbieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveFriendList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveFriendList" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveConfirmationOfInvitation_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveConfirmationOfInvitation" />
+  </wsdl:message>
+  <wsdl:message name="IGameRoom_ReceiveResponseGoToTheGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGoToTheGame" />
+  </wsdl:message>
+  <wsdl:portType name="ILobbies">
+    <wsdl:operation name="CreateLobbie">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/CreateLobbie" message="tns:ILobbies_CreateLobbie_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinLobbie">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/JoinLobbie" message="tns:ILobbies_JoinLobbie_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistLobbie">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/ExistLobbie" message="tns:ILobbies_ExistLobbie_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEndedLobbie">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/IsEndedLobbie" message="tns:ILobbies_IsEndedLobbie_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LobbieAreAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/LobbieAreAvailable" message="tns:ILobbies_LobbieAreAvailable_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmationCreationLobbie">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbies/ConfirmationCreationLobbie" message="tns:ILobbies_ConfirmationCreationLobbie_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/ConfirmationCreationLobbieResponse" message="tns:ILobbies_ConfirmationCreationLobbie_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveLobbieID">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbies/ReceiveLobbieID" message="tns:ILobbies_ReceiveLobbieID_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/ReceiveLobbieIDResponse" message="tns:ILobbies_ReceiveLobbieID_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinedSucessFull">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbies/JoinedSucessFull" message="tns:ILobbies_JoinedSucessFull_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/JoinedSucessFullResponse" message="tns:ILobbies_JoinedSucessFull_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseExistLobbie">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbies/ReceiveResponseExistLobbie" message="tns:ILobbies_ReceiveResponseExistLobbie_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/ReceiveResponseExistLobbieResponse" message="tns:ILobbies_ReceiveResponseExistLobbie_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseIsEndedLobbie">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbies/ReceiveResponseIsEndedLobbie" message="tns:ILobbies_ReceiveResponseIsEndedLobbie_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/ReceiveResponseIsEndedLobbieResponse" message="tns:ILobbies_ReceiveResponseIsEndedLobbie_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseLobbieAreAvailable">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbies/ReceiveResponseLobbieAreAvailable" message="tns:ILobbies_ReceiveResponseLobbieAreAvailable_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbies/ReceiveResponseLobbieAreAvailableResponse" message="tns:ILobbies_ReceiveResponseLobbieAreAvailable_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGameRoom">
+    <wsdl:operation name="IsLobbieHost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/IsLobbieHost" message="tns:IGameRoom_IsLobbieHost_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExitFromLobbie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/ExitFromLobbie" message="tns:IGameRoom_ExitFromLobbie_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/GetFriendList" message="tns:IGameRoom_GetFriendList_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Invitatefriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/Invitatefriend" message="tns:IGameRoom_Invitatefriend_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GoToTheGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/GoToTheGame" message="tns:IGameRoom_GoToTheGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseIsLobbieHost">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameRoom/ReceiveResponseIsLobbieHost" message="tns:IGameRoom_ReceiveResponseIsLobbieHost_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/ReceiveResponseIsLobbieHostResponse" message="tns:IGameRoom_ReceiveResponseIsLobbieHost_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlayerListRealTime">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameRoom/UpdatePlayerListRealTime" message="tns:IGameRoom_UpdatePlayerListRealTime_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseExitFromLobbie">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameRoom/ReceiveResponseExitFromLobbie" message="tns:IGameRoom_ReceiveResponseExitFromLobbie_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameRoom/ReceiveResponseExitFromLobbieResponse" message="tns:IGameRoom_ReceiveResponseExitFromLobbie_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveFriendList">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameRoom/ReceiveFriendList" message="tns:IGameRoom_ReceiveFriendList_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveConfirmationOfInvitation">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameRoom/ReceiveConfirmationOfInvitation" message="tns:IGameRoom_ReceiveConfirmationOfInvitation_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGoToTheGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameRoom/ReceiveResponseGoToTheGame" message="tns:IGameRoom_ReceiveResponseGoToTheGame_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_ILobbies" type="tns:ILobbies">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILobbies_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/CreateLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="JoinLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/JoinLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ExistLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/ExistLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="IsEndedLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/IsEndedLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="LobbieAreAvailable">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/LobbieAreAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmationCreationLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/ConfirmationCreationLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveLobbieID">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/ReceiveLobbieID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinedSucessFull">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/JoinedSucessFull" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseExistLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/ReceiveResponseExistLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseIsEndedLobbie">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/ReceiveResponseIsEndedLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseLobbieAreAvailable">
+      <soap12:operation soapAction="http://tempuri.org/ILobbies/ReceiveResponseLobbieAreAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameRoom" type="tns:IGameRoom">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameRoom_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="IsLobbieHost">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/IsLobbieHost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ExitFromLobbie">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/ExitFromLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendList">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/GetFriendList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Invitatefriend">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/Invitatefriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GoToTheGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/GoToTheGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseIsLobbieHost">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/ReceiveResponseIsLobbieHost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlayerListRealTime">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/UpdatePlayerListRealTime" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseExitFromLobbie">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/ReceiveResponseExitFromLobbie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveFriendList">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/ReceiveFriendList" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveConfirmationOfInvitation">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/ReceiveConfirmationOfInvitation" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGoToTheGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameRoom/ReceiveResponseGoToTheGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LobbiesControler">
+    <wsdl:port name="NetTcpBinding_ILobbies" binding="tns:NetTcpBinding_ILobbies">
+      <soap12:address location="net.tcp://192.168.1.74:9019/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9019/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameRoom" binding="tns:NetTcpBinding_IGameRoom">
+      <soap12:address location="net.tcp://192.168.1.74:9019/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9019/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

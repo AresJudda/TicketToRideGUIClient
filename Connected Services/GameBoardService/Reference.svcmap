@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="185ece8c-32a5-490d-9a6c-b42b81dfce98" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.74:9023" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="72fb70f0-839d-4037-bc83-3cf3198df95c" SourceId="1" SourceUrl="http://192.168.1.74:9023/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="5e67a6b9-d273-4163-902e-322382eda212" SourceId="1" SourceUrl="http://192.168.1.74:9023/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="a600f6b1-fa84-444b-9cac-16231d4b7033" SourceId="1" SourceUrl="http://192.168.1.74:9023/?xsd=xsd5" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="2e94e8a9-27ae-4c75-80d3-bff48acf71ee" SourceId="1" SourceUrl="http://192.168.1.74:9023/?xsd=xsd2" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="955c4ae2-435f-4acd-9a5b-fb29fc5da675" SourceId="1" SourceUrl="http://192.168.1.74:9023/?xsd=xsd4" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="abcd80b3-8965-4195-a6a0-a43eedf33f44" SourceId="1" SourceUrl="http://192.168.1.74:9023/?xsd=xsd1" />
+    <MetadataFile FileName="BoardGameServiceControler.wsdl" MetadataType="Wsdl" ID="498cead2-6905-4179-af25-2c1e9eb48a6a" SourceId="1" SourceUrl="http://192.168.1.74:9023/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="6ab02099-3eb3-4833-acf4-04f1eab8092a" SourceId="1" SourceUrl="http://192.168.1.74:9023/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

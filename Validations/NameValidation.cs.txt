@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TicketToRideGUI.Validations
+{
+    internal class NameValidation : ValidationsRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+
+            Regex regex = new Regex(@"^[a-zA-Z]{8}$");
+            if (!regex.IsMatch(value.ToString()))
+            {
+                return new ValidationResult(false, Properties.Resources.InvalidName);
+            }
+            else
+            {
+                return ValidationResult.ValidResult;
+            }
+        }
+    }
+}

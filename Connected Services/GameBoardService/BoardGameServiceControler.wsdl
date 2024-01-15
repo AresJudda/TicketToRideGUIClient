@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="BoardGameServiceControler" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IBoardGameService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GameServices" />
+      <xsd:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/GameServices.LogicGame" />
+      <xsd:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBoardGameService_InicialiceGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:InicialiceGame" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_RegisterCallback_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterCallback" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_GetCardsFromPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardsFromPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_GetCardsFromBoard_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardsFromBoard" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_GetTurnPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTurnPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_GetGamerInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamerInformation" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_StartRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRoute" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_GetMarkers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarkers" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ClaimTrainCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimTrainCard" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ClaimDeckTrainCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimDeckTrainCard" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_GetAvailableCyties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCyties" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ClaimRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimRoute" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseInicialiceGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseInicialiceGame" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseRegisterCallback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseRegisterCallback" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseGetCardsFromPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGetCardsFromPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseGetCardsFromBoard_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGetCardsFromBoard" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseGetTurnPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGetTurnPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseGetGamerInformation_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGetGamerInformation" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseGetMarkers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGetMarkers" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveUpdateCity_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveUpdateCity" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseClaimDeckTrainCard_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseClaimDeckTrainCard" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseGetAvailableCyties_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseGetAvailableCyties" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReceiveResponseClaimRoute_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseClaimRoute" />
+  </wsdl:message>
+  <wsdl:message name="IBoardGameService_ReciveResponseFinalyGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReciveResponseFinalyGame" />
+  </wsdl:message>
+  <wsdl:portType name="IBoardGameService">
+    <wsdl:operation name="InicialiceGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/InicialiceGame" message="tns:IBoardGameService_InicialiceGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterCallback">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/RegisterCallback" message="tns:IBoardGameService_RegisterCallback_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsFromPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/GetCardsFromPlayer" message="tns:IBoardGameService_GetCardsFromPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsFromBoard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/GetCardsFromBoard" message="tns:IBoardGameService_GetCardsFromBoard_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/GetTurnPlayer" message="tns:IBoardGameService_GetTurnPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamerInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/GetGamerInformation" message="tns:IBoardGameService_GetGamerInformation_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/StartRoute" message="tns:IBoardGameService_StartRoute_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/GetMarkers" message="tns:IBoardGameService_GetMarkers_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClaimTrainCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/ClaimTrainCard" message="tns:IBoardGameService_ClaimTrainCard_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClaimDeckTrainCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/ClaimDeckTrainCard" message="tns:IBoardGameService_ClaimDeckTrainCard_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCyties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/GetAvailableCyties" message="tns:IBoardGameService_GetAvailableCyties_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClaimRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBoardGameService/ClaimRoute" message="tns:IBoardGameService_ClaimRoute_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseInicialiceGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseInicialiceGame" message="tns:IBoardGameService_ReceiveResponseInicialiceGame_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseRegisterCallback">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseRegisterCallback" message="tns:IBoardGameService_ReceiveResponseRegisterCallback_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetCardsFromPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseGetCardsFromPlayer" message="tns:IBoardGameService_ReceiveResponseGetCardsFromPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetCardsFromBoard">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseGetCardsFromBoard" message="tns:IBoardGameService_ReceiveResponseGetCardsFromBoard_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetTurnPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseGetTurnPlayer" message="tns:IBoardGameService_ReceiveResponseGetTurnPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetGamerInformation">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseGetGamerInformation" message="tns:IBoardGameService_ReceiveResponseGetGamerInformation_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetMarkers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseGetMarkers" message="tns:IBoardGameService_ReceiveResponseGetMarkers_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveUpdateCity">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveUpdateCity" message="tns:IBoardGameService_ReceiveUpdateCity_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseClaimDeckTrainCard">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseClaimDeckTrainCard" message="tns:IBoardGameService_ReceiveResponseClaimDeckTrainCard_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetAvailableCyties">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseGetAvailableCyties" message="tns:IBoardGameService_ReceiveResponseGetAvailableCyties_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseClaimRoute">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReceiveResponseClaimRoute" message="tns:IBoardGameService_ReceiveResponseClaimRoute_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReciveResponseFinalyGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBoardGameService/ReciveResponseFinalyGame" message="tns:IBoardGameService_ReciveResponseFinalyGame_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IBoardGameService" type="tns:IBoardGameService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IBoardGameService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="InicialiceGame">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/InicialiceGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterCallback">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/RegisterCallback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsFromPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/GetCardsFromPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsFromBoard">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/GetCardsFromBoard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetTurnPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/GetTurnPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamerInformation">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/GetGamerInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartRoute">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/StartRoute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkers">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/GetMarkers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClaimTrainCard">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ClaimTrainCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClaimDeckTrainCard">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ClaimDeckTrainCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCyties">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/GetAvailableCyties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClaimRoute">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ClaimRoute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseInicialiceGame">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseInicialiceGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseRegisterCallback">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseRegisterCallback" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetCardsFromPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseGetCardsFromPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetCardsFromBoard">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseGetCardsFromBoard" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetTurnPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseGetTurnPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetGamerInformation">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseGetGamerInformation" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetMarkers">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseGetMarkers" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveUpdateCity">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveUpdateCity" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseClaimDeckTrainCard">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseClaimDeckTrainCard" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseGetAvailableCyties">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseGetAvailableCyties" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseClaimRoute">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReceiveResponseClaimRoute" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReciveResponseFinalyGame">
+      <soap12:operation soapAction="http://tempuri.org/IBoardGameService/ReciveResponseFinalyGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BoardGameServiceControler">
+    <wsdl:port name="NetTcpBinding_IBoardGameService" binding="tns:NetTcpBinding_IBoardGameService">
+      <soap12:address location="net.tcp://192.168.1.74:9024/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9024/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

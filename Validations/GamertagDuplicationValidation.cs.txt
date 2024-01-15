@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+
+namespace TicketToRideGUI.Validations
+{
+    public class GamertagDuplicationValidation : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            IUserPlayer user = new IUserPlayer
+            {
+                GamerTag = value.ToString(),
+            };
+
+            try
+            {
+                TicketToRideService.IUserPlayer player = new TicketToRideService.UserPlayerClient();
+                int resultValidateEmail = player.ValidateEmail(user);
+                if (resultValidateEmail == 1)
+                {
+                    return new ValidationResult(false, Properties.Resources.GamertagDuplicate);
+                }
+                else
+                {
+                    return ValidationResult.ValidResult;
+                }
+            }
+            catch (CommunicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new ValidationResult(false, Properties.Resources.ConnectionError);
+            }
+        }
+    }
+}

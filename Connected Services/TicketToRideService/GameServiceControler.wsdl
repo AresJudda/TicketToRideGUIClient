@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="GameServiceControler" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IUserPlayer_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IPlayersConnect_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.74:8088/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.74:8088/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.74:8088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GameServices" />
+      <xsd:import schemaLocation="http://192.168.1.74:8088/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGameServices_CheckFriendsConnected_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFriendsConnected" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_SearchPlayers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_SendFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_CheckFriendsRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFriendsRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_RejectFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_AcceptFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_CheckFriendsConnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFriendsConnect" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_ReciveOnlineFriendList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReciveOnlineFriendList" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_ReciveListPlayers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReciveListPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_ReciveConfirmationFriendRequest_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReciveConfirmationFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_ReciveListFriendRequest_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReciveListFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_ReciveResponseFriendRequest_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReciveResponseFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_RecivePlayerDisconnected_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecivePlayerDisconnected" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_AddPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_AddPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_IsPlayerExisting_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlayerExisting" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_IsPlayerExisting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlayerExistingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_SearchGamerKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchGamerKey" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_SearchGamerKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchGamerKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_GetGamerKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamerKey" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_GetGamerKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamerKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_IsEmailExisting_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailExisting" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_IsEmailExisting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailExistingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_GetGamerTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamerTag" />
+  </wsdl:message>
+  <wsdl:message name="IUserPlayer_GetGamerTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamerTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayersConnect_ConnectToTheGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToTheGame" />
+  </wsdl:message>
+  <wsdl:message name="IPlayersConnect_DisconnectFromTheGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromTheGame" />
+  </wsdl:message>
+  <wsdl:message name="IPlayersConnect_ReceiveResponseConnectStatus_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponseConnectStatus" />
+  </wsdl:message>
+  <wsdl:portType name="IGameServices">
+    <wsdl:operation name="CheckFriendsConnected">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/CheckFriendsConnected" message="tns:IGameServices_CheckFriendsConnected_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchPlayers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/SearchPlayers" message="tns:IGameServices_SearchPlayers_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/SendFriendRequest" message="tns:IGameServices_SendFriendRequest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFriendsRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/CheckFriendsRequest" message="tns:IGameServices_CheckFriendsRequest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/RejectFriendRequest" message="tns:IGameServices_RejectFriendRequest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/AcceptFriendRequest" message="tns:IGameServices_AcceptFriendRequest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFriendsConnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/CheckFriendsConnect" message="tns:IGameServices_CheckFriendsConnect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReciveOnlineFriendList">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/ReciveOnlineFriendList" message="tns:IGameServices_ReciveOnlineFriendList_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReciveListPlayers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/ReciveListPlayers" message="tns:IGameServices_ReciveListPlayers_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReciveConfirmationFriendRequest">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/ReciveConfirmationFriendRequest" message="tns:IGameServices_ReciveConfirmationFriendRequest_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReciveListFriendRequest">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/ReciveListFriendRequest" message="tns:IGameServices_ReciveListFriendRequest_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReciveResponseFriendRequest">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/ReciveResponseFriendRequest" message="tns:IGameServices_ReciveResponseFriendRequest_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecivePlayerDisconnected">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/RecivePlayerDisconnected" message="tns:IGameServices_RecivePlayerDisconnected_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUserPlayer">
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/AddUser" message="tns:IUserPlayer_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/AddUserResponse" message="tns:IUserPlayer_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/AddPlayer" message="tns:IUserPlayer_AddPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/AddPlayerResponse" message="tns:IUserPlayer_AddPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlayerExisting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/IsPlayerExisting" message="tns:IUserPlayer_IsPlayerExisting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/IsPlayerExistingResponse" message="tns:IUserPlayer_IsPlayerExisting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/AuthenticateUser" message="tns:IUserPlayer_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/AuthenticateUserResponse" message="tns:IUserPlayer_AuthenticateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchGamerKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/SearchGamerKey" message="tns:IUserPlayer_SearchGamerKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/SearchGamerKeyResponse" message="tns:IUserPlayer_SearchGamerKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamerKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/GetGamerKey" message="tns:IUserPlayer_GetGamerKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/GetGamerKeyResponse" message="tns:IUserPlayer_GetGamerKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailExisting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/IsEmailExisting" message="tns:IUserPlayer_IsEmailExisting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/IsEmailExistingResponse" message="tns:IUserPlayer_IsEmailExisting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamerTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserPlayer/GetGamerTag" message="tns:IUserPlayer_GetGamerTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserPlayer/GetGamerTagResponse" message="tns:IUserPlayer_GetGamerTag_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IPlayersConnect">
+    <wsdl:operation name="ConnectToTheGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayersConnect/ConnectToTheGame" message="tns:IPlayersConnect_ConnectToTheGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromTheGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayersConnect/DisconnectFromTheGame" message="tns:IPlayersConnect_DisconnectFromTheGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseConnectStatus">
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayersConnect/ReceiveResponseConnectStatus" message="tns:IPlayersConnect_ReceiveResponseConnectStatus_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IGameServices" type="tns:IGameServices">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameServices_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CheckFriendsConnected">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/CheckFriendsConnected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/SearchPlayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SendFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/SendFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFriendsRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/CheckFriendsRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RejectFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/RejectFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/AcceptFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFriendsConnect">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/CheckFriendsConnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ReciveOnlineFriendList">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/ReciveOnlineFriendList" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReciveListPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/ReciveListPlayers" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReciveConfirmationFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/ReciveConfirmationFriendRequest" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReciveListFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/ReciveListFriendRequest" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReciveResponseFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/ReciveResponseFriendRequest" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecivePlayerDisconnected">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/RecivePlayerDisconnected" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IUserPlayer" type="tns:IUserPlayer">
+    <wsp:PolicyReference URI="#NetTcpBinding_IUserPlayer_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AddUser">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/AddPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlayerExisting">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/IsPlayerExisting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGamerKey">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/SearchGamerKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamerKey">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/GetGamerKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailExisting">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/IsEmailExisting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamerTag">
+      <soap12:operation soapAction="http://tempuri.org/IUserPlayer/GetGamerTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IPlayersConnect" type="tns:IPlayersConnect">
+    <wsp:PolicyReference URI="#NetTcpBinding_IPlayersConnect_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ConnectToTheGame">
+      <soap12:operation soapAction="http://tempuri.org/IPlayersConnect/ConnectToTheGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromTheGame">
+      <soap12:operation soapAction="http://tempuri.org/IPlayersConnect/DisconnectFromTheGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveResponseConnectStatus">
+      <soap12:operation soapAction="http://tempuri.org/IPlayersConnect/ReceiveResponseConnectStatus" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GameServiceControler">
+    <wsdl:port name="NetTcpBinding_IGameServices" binding="tns:NetTcpBinding_IGameServices">
+      <soap12:address location="net.tcp://192.168.1.74:9011/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9011/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IUserPlayer" binding="tns:NetTcpBinding_IUserPlayer">
+      <soap12:address location="net.tcp://192.168.1.74:9011/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9011/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IPlayersConnect" binding="tns:NetTcpBinding_IPlayersConnect">
+      <soap12:address location="net.tcp://192.168.1.74:9011/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9011/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

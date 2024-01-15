@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GameServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GameServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.74:9023/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/GameServices.LogicGame" />
+  <xs:complexType name="ArrayOfCity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="City" type="tns:City" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCity" nillable="true" type="tns:ArrayOfCity" />
+  <xs:simpleType name="City">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Atlanta" />
+      <xs:enumeration value="Boston" />
+      <xs:enumeration value="Calgary" />
+      <xs:enumeration value="Charleston" />
+      <xs:enumeration value="Chicago" />
+      <xs:enumeration value="Dallas" />
+      <xs:enumeration value="Denver" />
+      <xs:enumeration value="Duluth" />
+      <xs:enumeration value="ElPaso" />
+      <xs:enumeration value="KansasCity" />
+      <xs:enumeration value="Helena" />
+      <xs:enumeration value="Houston" />
+      <xs:enumeration value="LasVegas" />
+      <xs:enumeration value="LittleRock" />
+      <xs:enumeration value="LosAngeles" />
+      <xs:enumeration value="Miami" />
+      <xs:enumeration value="Montreal" />
+      <xs:enumeration value="Nashville" />
+      <xs:enumeration value="NewOrleans" />
+      <xs:enumeration value="NewYork" />
+      <xs:enumeration value="OklahomaCity" />
+      <xs:enumeration value="Omaha" />
+      <xs:enumeration value="Phoenix" />
+      <xs:enumeration value="Pittsburgh" />
+      <xs:enumeration value="Portland" />
+      <xs:enumeration value="Raleigh" />
+      <xs:enumeration value="SaintLouis" />
+      <xs:enumeration value="SaltLakeCity" />
+      <xs:enumeration value="SanFrancisco" />
+      <xs:enumeration value="SantaFe" />
+      <xs:enumeration value="SaultSaintMarie" />
+      <xs:enumeration value="Seattle" />
+      <xs:enumeration value="Toronto" />
+      <xs:enumeration value="Vancouver" />
+      <xs:enumeration value="Washington" />
+      <xs:enumeration value="Winnipeg" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="City" nillable="true" type="tns:City" />
+  <xs:complexType name="TrainCard">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GameServices.LogicGame" minOccurs="0" name="Color" type="q1:TrainColor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainCard" nillable="true" type="tns:TrainCard" />
+  <xs:complexType name="GamerBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentLocation" type="tns:City" />
+      <xs:element minOccurs="0" name="DestinationCards" nillable="true" type="tns:ArrayOfDestinationCard" />
+      <xs:element minOccurs="0" name="DestinationCity" type="tns:City" />
+      <xs:element minOccurs="0" name="GamerTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GamerTrains" type="xs:int" />
+      <xs:element minOccurs="0" name="IsWinner" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/GameServices.LogicGame" minOccurs="0" name="PlayerColor" type="q2:PlayerColor" />
+      <xs:element minOccurs="0" name="Points" type="xs:int" />
+      <xs:element minOccurs="0" name="RouteFinished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SelectedRoute" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TrainCardsDeck" nillable="true" type="tns:ArrayOfTrainCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GamerBoard" nillable="true" type="tns:GamerBoard" />
+  <xs:complexType name="ArrayOfDestinationCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DestinationCard" nillable="true" type="tns:DestinationCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDestinationCard" nillable="true" type="tns:ArrayOfDestinationCard" />
+  <xs:complexType name="DestinationCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Destination" type="tns:City" />
+      <xs:element minOccurs="0" name="Origin" type="tns:City" />
+      <xs:element minOccurs="0" name="PointValue" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DestinationCard" nillable="true" type="tns:DestinationCard" />
+  <xs:complexType name="ArrayOfTrainCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainCard" nillable="true" type="tns:TrainCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrainCard" nillable="true" type="tns:ArrayOfTrainCard" />
+  <xs:complexType name="ArrayOfGamerBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GamerBoard" nillable="true" type="tns:GamerBoard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGamerBoard" nillable="true" type="tns:ArrayOfGamerBoard" />
+</xs:schema>

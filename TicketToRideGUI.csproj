@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3277325E-01B6-4625-95BE-00CEFD564E94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TicketToRideGUI</RootNamespace>
+    <AssemblyName>TicketToRideGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Connected Services\ChatServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\EmailManagementService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\GameBoardService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\LobbiesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProfileService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TicketToRideService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\BoolToVisibilityConverter.cs" />
+    <Compile Include="Logic\ChangeLanguage.cs" />
+    <Compile Include="Logic\LobbieData.cs" />
+    <Compile Include="Logic\LobbieReference.cs" />
+    <Compile Include="Logic\LobbieViewFriends.cs" />
+    <Compile Include="Logic\LobbieViewGamers.cs" />
+    <Compile Include="Logic\Operation.cs" />
+    <Compile Include="Logic\UserReference.cs" />
+    <Compile Include="Music\MusicPlayer.cs" />
+    <Compile Include="Properties\Resources.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.fr-Fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.fr-Fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Validations\EmailDuplicateValidation.cs" />
+    <Compile Include="Views\BoardPage.xaml.cs">
+      <DependentUpon>BoardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePasswordPage.xaml.cs">
+      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreationGamesPage.xaml.cs">
+      <DependentUpon>CreationGamesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameRoomPage.xaml.cs">
+      <DependentUpon>GameRoomPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameWonPage.xaml.cs">
+      <DependentUpon>GameWonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LobbiePage.xaml.cs">
+      <DependentUpon>LobbiePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LostGame.xaml.cs">
+      <DependentUpon>LostGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScorePage.xaml.cs">
+      <DependentUpon>ScorePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\BoardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangePasswordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreationGamesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameRoomPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameWonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LobbiePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LostGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.fr-Fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.fr-Fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Connected Services\ChatServiceReference\ChatService.wsdl" />
+    <None Include="Connected Services\ChatServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ChatServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmailManagementService\EmailManagementControler1.wsdl" />
+    <None Include="Connected Services\EmailManagementService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmailManagementService\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameBoardService\BoardGameServiceControler.wsdl" />
+    <None Include="Connected Services\GameBoardService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameBoardService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameBoardService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameBoardService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameBoardService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameBoardService\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LobbiesService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LobbiesService\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LobbiesService\item32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LobbiesService\LobbiesControler1.wsdl" />
+    <None Include="Connected Services\ProfileService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProfileService\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProfileService\item32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProfileService\ProfileControler1.wsdl" />
+    <None Include="Connected Services\TicketToRideService\GameServiceControler.wsdl" />
+    <None Include="Connected Services\TicketToRideService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TicketToRideService\item41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TicketToRideService\item42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TicketToRideService\item43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PosibleLogin%281%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Friends.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Lobbie.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Profile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Candado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Candado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Antifaz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Arroba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Score.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ChatServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\EmailManagementService\" />
+    <WCFMetadataStorage Include="Connected Services\GameBoardService\" />
+    <WCFMetadataStorage Include="Connected Services\LobbiesService\" />
+    <WCFMetadataStorage Include="Connected Services\ProfileService\" />
+    <WCFMetadataStorage Include="Connected Services\TicketToRideService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon-conected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SolicitudAmistad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon-disconected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ChangePassword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ChatServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ChatServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ChatServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CrationGames.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\volver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\HomePageGif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TicketToRideService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TicketToRideService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TicketToRideService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\redButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EmailManagementService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EmailManagementService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EmailManagementService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LobbiesService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LobbiesService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LobbiesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProfileService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProfileService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProfileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GameBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\locomotive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainOrange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainPink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trainYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameBoardService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameBoardService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameBoardService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Calgary-Phoenix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Calgary-SaltLakeCity.png" />
+    <Resource Include="Images\Denver-El Paso.png" />
+    <Resource Include="Images\Denver-Pittsburch.png" />
+    <Resource Include="Images\Doluth-ElPaso.png" />
+    <Resource Include="Images\Doluth-Houston.png" />
+    <Resource Include="Images\KansasCity-Houston.png" />
+    <Resource Include="Images\LosAngeles-Chicago.png" />
+    <Resource Include="Images\LosAngeles-NewYork.png" />
+    <Resource Include="Images\Montreal-Atlanta.png" />
+    <Resource Include="Images\NewYork-Atlanta.png" />
+    <Resource Include="Images\Reverso destino.jpg" />
+    <Resource Include="Images\Reverso tren.jpg" />
+    <Resource Include="Images\SanFrancisco-Atlanta.png" />
+    <Resource Include="Images\Seattle-NewYork.png" />
+    <Resource Include="Images\Vancouver-Montreal.png" />
+    <Resource Include="Images\Winnipec-Houston.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReportarBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reportar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bugs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Western sheriff.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Validations\EmailNewValidation.cs.txt" />
+    <Resource Include="Validations\EmailValidation.cs.txt" />
+    <Resource Include="Validations\GamertagDuplicationValidation.cs.txt" />
+    <Resource Include="Validations\GamertagValidation.cs.txt" />
+    <Resource Include="Validations\NameValidation.cs.txt" />
+    <Resource Include="Validations\PasswordValidation.cs.txt" />
+    <None Include="Connected Services\ChatServiceReference\item.disco" />
+    <None Include="Connected Services\EmailManagementService\item1.disco" />
+    <None Include="Connected Services\GameBoardService\item.disco" />
+    <None Include="Connected Services\LobbiesService\item1.disco" />
+    <None Include="Connected Services\ProfileService\item1.disco" />
+    <None Include="Connected Services\TicketToRideService\item1.disco" />
+    <Content Include="Music\Música de enfrentamiento %28320 kbps%29.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\Roundup on the Prairie.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

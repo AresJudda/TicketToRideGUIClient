@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ProfileControler" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IProfile_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IStat_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.74:9021/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.74:9021/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.74:9021/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GameServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProfile_GetDataPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_ReceiveDataPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveDataPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_ReceiveDataPlayer_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveDataPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStat_GetStatPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IStat_ReceiveStatPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveStatPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IStat_ReceiveStatPlayer_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveStatPlayerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProfile">
+    <wsdl:operation name="GetDataPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetDataPlayer" message="tns:IProfile_GetDataPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveDataPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/ReceiveDataPlayer" message="tns:IProfile_ReceiveDataPlayer_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/ReceiveDataPlayerResponse" message="tns:IProfile_ReceiveDataPlayer_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IStat">
+    <wsdl:operation name="GetStatPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStat/GetStatPlayer" message="tns:IStat_GetStatPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveStatPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IStat/ReceiveStatPlayer" message="tns:IStat_ReceiveStatPlayer_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IStat/ReceiveStatPlayerResponse" message="tns:IStat_ReceiveStatPlayer_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IProfile" type="tns:IProfile">
+    <wsp:PolicyReference URI="#NetTcpBinding_IProfile_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetDataPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/GetDataPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveDataPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/ReceiveDataPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IStat" type="tns:IStat">
+    <wsp:PolicyReference URI="#NetTcpBinding_IStat_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetStatPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IStat/GetStatPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveStatPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IStat/ReceiveStatPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProfileControler">
+    <wsdl:port name="NetTcpBinding_IProfile" binding="tns:NetTcpBinding_IProfile">
+      <soap12:address location="net.tcp://192.168.1.74:9022/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9022/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IStat" binding="tns:NetTcpBinding_IStat">
+      <soap12:address location="net.tcp://192.168.1.74:9022/GameServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.74:9022/GameServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

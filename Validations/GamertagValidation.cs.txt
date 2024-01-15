@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Text.RegularExpressions;
+
+namespace TicketToRideGUI.Validations
+{
+    public class GamertagValidation : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            Regex regex = new Regex(@"^[a-zA-Z0-9]{10}$");
+            string input = value.ToString();
+            if (!regex.IsMatch(input))
+            {
+                return new ValidationResult(false, Properties.Resources.InvalidGamertag);
+            }
+            else
+            {
+                return ValidationResult.ValidResult;
+            }
+        }
+    }
+}

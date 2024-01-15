@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnCloseGameWon" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="btnCloseLostGame" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="btnCreateLobbie" xml:space="preserve">
+    <value>Crear sala</value>
+  </data>
+  <data name="btnGoBackChangePassword" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="btnGoBackLogin" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="btnGoBackRegistration" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="btnGoRegistration" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="btnGoToLogin" xml:space="preserve">
+    <value>¡Qué inicie la aventura!</value>
+  </data>
+  <data name="btnJoinLobbie" xml:space="preserve">
+    <value>Unirse</value>
+  </data>
+  <data name="btnLogin" xml:space="preserve">
+    <value>Dentro estación</value>
+  </data>
+  <data name="btnLoginRegistration" xml:space="preserve">
+    <value>Dentro estación</value>
+  </data>
+  <data name="btnLogOut" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  <data name="btnPlayGame" xml:space="preserve">
+    <value>Jugar</value>
+  </data>
+  <data name="btnProfileMenu" xml:space="preserve">
+    <value>Ir a mi perfil</value>
+  </data>
+  <data name="btnReturnToTheMainMenu" xml:space="preserve">
+    <value>Salir de menú principal</value>
+  </data>
+  <data name="btnSendEmail" xml:space="preserve">
+    <value>Enviar correo</value>
+  </data>
+  <data name="CallbackProblem" xml:space="preserve">
+    <value>¡Ups!, problemas en el callback</value>
+  </data>
+  <data name="CapacityRoom" xml:space="preserve">
+    <value>Seleccione una capacidad.</value>
+  </data>
+  <data name="DontTakeCards" xml:space="preserve">
+    <value>No puedes tomar cartas del mazos</value>
+  </data>
+  <data name="EmptyBoxes" xml:space="preserve">
+    <value>No puedes seleccionar casillas vacías</value>
+  </data>
+  <data name="ErrorCreatingRoom" xml:space="preserve">
+    <value>Ocurrió un error al crear el lobby, por favor intentelo más tarde</value>
+  </data>
+  <data name="ErrorEnteringRoom" xml:space="preserve">
+    <value>Hubo un error al entrar a la sala</value>
+  </data>
+  <data name="ExistingGamertag" xml:space="preserve">
+    <value>El Gamertag ya se encuentra registrado</value>
+  </data>
+  <data name="ExistingMail" xml:space="preserve">
+    <value>El correo ya se encuentra registrado</value>
+  </data>
+  <data name="FailedFriendshipRequest" xml:space="preserve">
+    <value>Error al procesar la solicitud de amistad</value>
+  </data>
+  <data name="FailedPassword" xml:space="preserve">
+    <value>Hubo un error al tratar de restablecer la contraseña, intentelo más tarde</value>
+  </data>
+  <data name="FullRoom" xml:space="preserve">
+    <value>La sala a la que tratas de unirte se encuentra llena</value>
+  </data>
+  <data name="HostAbandonedRoom" xml:space="preserve">
+    <value>El anfitrión ha abandonado la sala</value>
+  </data>
+  <data name="IncorrectLobbyPassword" xml:space="preserve">
+    <value>Verifique la clave del lobby, la clave ingresada es incorrecta</value>
+  </data>
+  <data name="InopportuneResponse" xml:space="preserve">
+    <value>Error. Tenemos un problema para iniciar</value>
+  </data>
+  <data name="InvalidUser" xml:space="preserve">
+    <value>Usuario inválido</value>
+  </data>
+  <data name="InviteFriend" xml:space="preserve">
+    <value>¿Quieres que sea tu amigo</value>
+  </data>
+  <data name="lblClickHere" xml:space="preserve">
+    <value>Da clic aquí</value>
+  </data>
+  <data name="lblForgotPassword" xml:space="preserve">
+    <value>¿No recuerdas tu contraseña?</value>
+  </data>
+  <data name="lblFriends" xml:space="preserve">
+    <value>Amigos</value>
+  </data>
+  <data name="lblLobbie" xml:space="preserve">
+    <value>Lobbie</value>
+  </data>
+  <data name="lblLogin" xml:space="preserve">
+    <value>Inicio de sesión</value>
+  </data>
+  <data name="lblRegistration" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="lblResetPassword" xml:space="preserve">
+    <value>Restablece tu contraseña</value>
+  </data>
+  <data name="lblSearchRoom" xml:space="preserve">
+    <value>Buscar sala</value>
+  </data>
+  <data name="MailNonexistent" xml:space="preserve">
+    <value>El correo ingresado no se encontró dentro del juego</value>
+  </data>
+  <data name="MailSendingError" xml:space="preserve">
+    <value>Hubo un error al enviar el correo, te recomendamos intentarlo más tarde</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Se a restablecido la contraseña  correctamente</value>
+  </data>
+  <data name="PlayerGuest" xml:space="preserve">
+    <value>El jugador ha sido invitado :)</value>
+  </data>
+  <data name="PlayerNotRegistered" xml:space="preserve">
+    <value>El registro no ha sido posible, inténtelo más tarde</value>
+  </data>
+  <data name="RepeatedFriendshipRequest" xml:space="preserve">
+    <value>Este jugador al que tratas de invitar ya es tu amigo o ya se le envió solicitud</value>
+  </data>
+  <data name="RestorePassword" xml:space="preserve">
+    <value>Se ha enviado un correo con una clave unica para establecer una nueva contraseña</value>
+  </data>
+  <data name="RoomNotAvailable" xml:space="preserve">
+    <value>La sala a la que tratas de unirte ya no está disponible</value>
+  </data>
+  <data name="ServerNotAvailable" xml:space="preserve">
+    <value>El servidor no está disponible por el momento. Por favor, inténtelo más tarde</value>
+  </data>
+  <data name="SuccessfulFriendshipRequest" xml:space="preserve">
+    <value>Se ha enviado con éxito la solicitud de amistad</value>
+  </data>
+  <data name="SuccessfullyRegisteredPlayer" xml:space="preserve">
+    <value>Registro exitoso</value>
+  </data>
+  <data name="txbLostMessage" xml:space="preserve">
+    <value>Fatal,</value>
+  </data>
+  <data name="txbLostMessage02" xml:space="preserve">
+    <value>Perdiste</value>
+  </data>
+  <data name="txbScore" xml:space="preserve">
+    <value>Puntos</value>
+  </data>
+  <data name="txbWonMessage" xml:space="preserve">
+    <value>Felicidades</value>
+  </data>
+  <data name="txtbCapacity" xml:space="preserve">
+    <value>Selecciona la capacidad de la sala</value>
+  </data>
+  <data name="txtbCreateRoom" xml:space="preserve">
+    <value>Crear sala</value>
+  </data>
+  <data name="txtEmailChangePassword" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="txtEmailLogin" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="txtEmailProfile" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="txtEmailRegistration" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="txtGamerTag" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="txtGamerTagRegistration" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="txtGamesPlayed" xml:space="preserve">
+    <value>Partidas jugadas</value>
+  </data>
+  <data name="txtGamesWon" xml:space="preserve">
+    <value>Partidas ganadas</value>
+  </data>
+  <data name="txtNameProfile" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="txtNameRegistration" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="txtPasswordLogin" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="txtPasswordRegistration" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="txtPlayerId" xml:space="preserve">
+    <value>ID Jugador</value>
+  </data>
+  <data name="txtProfile" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="txtScore" xml:space="preserve">
+    <value>Estadísticas</value>
+  </data>
+  <data name="txtWinningPercentage" xml:space="preserve">
+    <value>Porcentaje de victorias</value>
+  </data>
+  <data name="VerifyCode" xml:space="preserve">
+    <value>Verifica el código enviado al correo que proporcionaste</value>
+  </data>
+</root>

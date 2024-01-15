@@ -1,0 +1,8 @@
+﻿C:\Users\aresj\OneDrive\Escritorio\VideoJuego-Tecnologias\TicketToRideClient\TicketToRideClient\TicketToRideGUI\TicketToRideGUI\CallbackTest\GlobalUsings.cs
+C:\Users\aresj\OneDrive\Escritorio\VideoJuego-Tecnologias\TicketToRideClient\TicketToRideClient\TicketToRideGUI\TicketToRideGUI\CallbackTest\UnitTest1.cs
+C:\Users\aresj\.nuget\packages\microsoft.net.test.sdk\17.8.0\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.Program.cs
+C:\Users\aresj\.nuget\packages\microsoft.testplatform.testhost\17.8.0\build\netcoreapp3.1\x64\testhost.exe
+C:\Users\aresj\.nuget\packages\microsoft.testplatform.testhost\17.8.0\build\netcoreapp3.1\x64\testhost.dll
+C:\Users\aresj\.nuget\packages\mstest.testadapter\3.1.1\build\net6.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\aresj\.nuget\packages\mstest.testadapter\3.1.1\build\net6.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\aresj\.nuget\packages\mstest.testadapter\3.1.1\build\net6.0\Microsoft.TestPlatform.AdapterUtilities.dll

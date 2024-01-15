@@ -1,0 +1,228 @@
+﻿<Page x:Class="TicketToRideGUI.Views.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:p="clr-namespace:TicketToRideGUI.Properties"
+      xmlns:local="clr-namespace:TicketToRideGUI.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1960"
+      Title="RegistrationPage">
+    <Viewbox Stretch="Fill">
+
+        <Grid>
+
+            <Border CornerRadius = "10"
+                    BorderBrush = "Beige"
+                    BorderThickness = "5">
+                <Border.Background>
+                    <ImageBrush ImageSource = "/Images/PosibleLogin(1).jpeg"/>
+                </Border.Background>
+
+                <Border CornerRadius = "30, 30, 30, 30"
+                        Background = "#e4e2c9"
+                        BorderBrush = "#eff0f4"
+                        Opacity = "0.8"
+                        Height = "295"
+                        Width = "560"
+                        HorizontalAlignment = "Center"
+                        VerticalAlignment="Top" Margin="0,129,0,0">
+
+                    <Border CornerRadius = "40, 40, 40, 40"
+                            Background = "#968b78"
+                            BorderBrush = "#bfab98"
+                            Width = "376"
+                            HorizontalAlignment = "Center"
+                            Margin="0,-37,0,275">
+
+                        <Label x:Name = "lblRegistration"
+                            Content = "{x:Static p:Resources.lblRegistration}"
+                            FontSize = "30"
+                            Width= "280"
+                            HorizontalAlignment = "Left" 
+                            Margin="107,10,0,0" 
+                            FontFamily="Arial Black"
+                            Foreground="#b32622"
+                        />
+                    </Border>
+                </Border>
+            </Border>
+
+            <TextBlock x:Name = "txtNameRegistration"
+                Text = "{x:Static p:Resources.txtNameRegistration}"
+                FontSize = "20"
+                Width= "130"
+                Height = "40"
+                HorizontalAlignment = "Left" 
+                Margin="381,192,0,650" 
+                FontFamily="Arial Black"
+            />
+
+            <TextBlock x:Name = "txtGamerTagRegistration"
+                        Text = "{x:Static p:Resources.txtGamerTagRegistration}"
+                        FontSize = "20"
+                        Width= "130"
+                        Height = "40"
+                        HorizontalAlignment = "Left" 
+                        Margin="381,250,0,593" 
+                        FontFamily="Arial Black"
+            />
+
+            <TextBox x:Name="txbGamerTag" 
+                        Margin="517,246,369,602"
+                        Height="35"
+                        FontSize="18"
+                        FontFamily="Georgia"
+                        Padding="20,0,0,0">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/Images/Antifaz.png"
+                                Stretch="None"
+                                AlignmentX="Left"
+                    />
+                </TextBox.Background>
+
+            </TextBox>
+
+
+            <TextBlock x:Name = "txtEmailRegistration"
+                       Text = "{x:Static p:Resources.txtEmailRegistration}"
+                       FontSize = "20"
+                       Width= "130"
+                       Height = "40"
+                       HorizontalAlignment = "Left" 
+                       Margin="381,300,0,542" 
+                       FontFamily="Arial Black"
+            />
+            
+            <TextBox x:Name="txbEmail" 
+                     Margin="517,300,369,548"
+                     Height="35"
+                     FontSize="18"
+                     FontFamily="Georgia"
+                     Padding="20,0,0,0">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/Images/Arroba.png"
+                                Stretch="None"
+                                AlignmentX="Left"
+                    />
+                </TextBox.Background>
+
+            </TextBox>
+
+            <TextBlock x:Name = "txtPasswordRegistration"
+                       Text = "{x:Static p:Resources.txtPasswordRegistration}"
+                       FontSize = "20"
+                       Width= "130"
+                       Height = "40"
+                       HorizontalAlignment = "Left" 
+                       Margin="381,357,0,485" 
+                       FontFamily="Arial Black"
+            />
+
+            <TextBox x:Name="txbName" 
+                    Margin="517,189,369,659"
+                    Height="35"
+                    FontSize="18"
+                    FontFamily="Georgia"
+                    Padding="20,0,0,0">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/Images/Usuario.png"
+                                Stretch="None"
+                                AlignmentX="Left"
+                    />
+                </TextBox.Background>
+
+            </TextBox>
+
+            <PasswordBox x:Name="pwbPassword" 
+                         Margin="517,354,369,494"
+                         Height="35"
+                         FontSize="18"
+                         FontFamily="Georgia">
+                <PasswordBox.Background>
+                    <ImageBrush ImageSource="/Images/Candado.png"
+                            Stretch="None"
+                            AlignmentX="Left"
+                    />
+                </PasswordBox.Background>
+            </PasswordBox>
+
+
+            <TextBlock  Width= "180"
+                        Height = "40"
+                        HorizontalAlignment = "Left" 
+                        Margin="1076,379,0,464"
+            />
+
+
+            <Button x:Name="btnLoginRegistration"                          
+                 BorderThickness="0"
+                 Content="{x:Static p:Resources.btnLoginRegistration}"
+                 Foreground="#ffdd76"
+                 FontSize="16"
+                 FontFamily="MV Boli"
+                 Cursor="Hand"                           
+                 Margin="10,760,-10,26"
+                 Click="btnRegisterClick">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#e14312"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#f36013"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="160" Height="30"
+                                CornerRadius="14"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"
+                            />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+            <Button x:Name="btnGoBackRegistration"                          
+                    BorderThickness="0"
+                    Content="{x:Static p:Resources.btnGoBackRegistration}"
+                    Foreground="DarkBlue"
+                    FontSize="16"
+                    FontFamily="MV Boli"
+                    Cursor="Hand"                           
+                    Margin="-79,478,740,222"
+                    Click="btnLoginClick">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#8fc2d4"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" 
+                                     Value="True">
+                                <Setter Property="Background" 
+                                        Value="#bfcdc0"
+                                />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="160" Height="30"
+                                CornerRadius="14"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"
+                            />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+        </Grid>
+    </Viewbox>
+</Page>

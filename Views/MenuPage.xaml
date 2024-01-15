@@ -1,0 +1,109 @@
+﻿<Page x:Class="TicketToRideGUI.Views.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:p="clr-namespace:TicketToRideGUI.Properties"
+      xmlns:local="clr-namespace:TicketToRideGUI.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1960"
+      Title="MenuPage">
+
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Grid.Background>
+                <SolidColorBrush Color="Beige" Opacity="0.5"/>
+            </Grid.Background>
+            <Border>
+                <Border.Background>
+                    <ImageBrush ImageSource="\Images\Menu.png"/>
+                </Border.Background>
+            </Border>
+
+            <Button x:Name="btnReturnToTheMainMenu"
+                    BorderThickness="0"
+                    Content="{x:Static p:Resources.btnReturnToTheMainMenu}"
+                    Foreground="#8a3d1c"
+                    FontSize="19"
+                    FontFamily="MV Boli"
+                    Cursor="Hand"
+                    Click="btnReturnMenuClick"
+                    Margin="158,349,152,66">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="14" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#fedea9"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#f4ebc0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="btnProfileMenu"
+                    Content="{x:Static p:Resources.btnProfileMenu}"
+                    Foreground="#8a3d1c"
+                    FontSize="10"
+                    FontFamily="Courier New"
+                    Cursor="Hand"
+                    Click="btnProfileClick"
+                    Margin="171,310,309,119" FontWeight="Bold">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="14" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#fedea9"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#f4ebc0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button x:Name="btnLogOut"
+                    Content="{x:Static p:Resources.btnLogOut}"
+                    Foreground="#8a3d1c"
+                    FontSize="10"
+                    FontFamily="Courier New"
+                    Cursor="Hand"
+                    Click="btnLogOutClick"
+                    Margin="302,310,160,119"
+                    FontWeight="Bold">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="14" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#fedea9"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#f4ebc0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Viewbox>
+</Page>

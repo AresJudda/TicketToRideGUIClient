@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Controls;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+
+namespace TicketToRideGUI.Validations
+{
+    public class EmailNewValidation : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            IUserPlayer user = new IUserPlayer
+            {
+                Email = value.ToString(),
+            };
+
+            try
+            {
+                TicketToRideService.IUserPlayer player = new TicketToRideService.UserPlayerClient();
+                int resultValidateEmail = player.ValidateEmail(user);
+
+                if (value.ToString() != UserReference.GetInstance.Email && resultValidateEmail == 1)
+                {
+                    return new ValidationResult(false, Properties.Resources.ExistingMail);
+                }
+                else
+                {
+                    return ValidationResult.ValidResult;
+                }
+            }
+            catch (CommunicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new ValidationResult(false, Properties.Resources.ConnectionError);
+            }
+        }
+    }
+}
